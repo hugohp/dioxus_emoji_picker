@@ -12,14 +12,18 @@ use dioxus_emoji_picker::prelude::*;
 
 #[component]
 fn example() -> Element
-use dioxus_emoji_picker::prelude::*;
 
-	let mut content = use_signal(|| String::new());
+  let content = use_signal(|| String::new());
 
-	rsx! {
-		div {
-			EmojiPicker { content : content },
-		}
-	}
+  rsx! {
+    div {
+      EmojiPicker { content : content },
+    }
+  }
 }
 ```
+
+# CSS
+
+Copy contents assets/emoji_picker.css into your css file.
+
