@@ -3,6 +3,11 @@ name = "dioxus_emoji_picker"
 version = "0.1.0"
 authors = ["Hugo <hugohp@proton.me>"]
 edition = "2021"
+description = "Dioxus Emoji Picker"
+homepage="https://github.com/hugohp/dioxus_emoji_picker"
+repository = "https://github.com/hugohp/dioxus_emoji_picker"
+license = "GPL-3.0-or-later"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
