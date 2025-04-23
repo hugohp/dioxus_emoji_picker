@@ -8,6 +8,9 @@ homepage="https://github.com/hugohp/dioxus_emoji_picker"
 repository = "https://github.com/hugohp/dioxus_emoji_picker"
 license = "GPL-3.0-or-later"
 readme = "README.md"
+exclude = [
+	"images/emoji_picker.png"
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
