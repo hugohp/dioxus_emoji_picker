@@ -52,7 +52,7 @@ fn EmojiGroups(
 											.set(PickerStatus::ByGroup(group));
 									},
 									key : "{group_emoji}",
-									class : "emoji_group_element",
+									class : "emoji_button",
 									title : "{group_name}",
 									"{group_emoji}"
 								}
@@ -106,7 +106,7 @@ fn EmojiSearch(
 			div {
 				class: "emoji_skin_tone_dropdown",
 				button {
-					class: "emoji_skin_tone_main_button",
+					class : "emoji_button",
 					onclick: move |_| {
 						show_skin_tones.toggle();
 					},
@@ -129,7 +129,7 @@ fn EmojiSearch(
 												);
 												show_skin_tones.toggle();
 											},
-											class : "emoji_skin_tone_button",
+											class : "emoji_button",
 											title : "{shortcode}",
 											"{emoji_str}"
 										}
@@ -170,7 +170,7 @@ fn EmojiGrid(
 										);
 									},
 									key : "{emoji_str}",
-									class : "emoji_grid_element_button",
+									class : "emoji_button",
 									title : "{shortcode}",
 									"{emoji_str}"
 								}
@@ -201,7 +201,7 @@ fn EmojiGrid(
 										);
 									},
 									key : "{emoji_str}",
-									class : "emoji_grid_element_button",
+									class : "emoji_button",
 									title : "{shortcode}",
 									"{emoji_str}"
 								}
