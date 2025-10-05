@@ -183,13 +183,18 @@ fn EmojiGroups(
     ];
 
 	match &*picker_status.read() {
-		PickerStatus::ByGroup(_) => {
+		PickerStatus::ByGroup(selected_group) => {
 			rsx! {
 				div {
 					class: "emoji_groups",
 					{
 						groups.iter().map(|(group,group_emoji,group_name)| {
 							let group = *group;
+							let class_name = if group == *selected_group {
+								"emoji_button active"
+							} else {
+								"emoji_button"
+							};
 							rsx! {
 								button {
 									onclick: move |_| {
@@ -197,7 +202,7 @@ fn EmojiGroups(
 											.set(PickerStatus::ByGroup(group));
 									},
 									key : "{group_emoji}",
-									class : "emoji_button",
+									class : "{class_name}",
 									title : "{group_name}",
 									"{group_emoji}"
 								}
