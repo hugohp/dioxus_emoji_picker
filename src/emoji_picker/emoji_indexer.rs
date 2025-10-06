@@ -10,7 +10,13 @@ impl EmojiIndexer {
     pub fn new() -> Self {
 
 		let mut emojis = emojis::iter().map(|e|
-			(e.name().to_lowercase(),e)
+			{
+				let name = e.name();
+				let name = name.strip_prefix("flag: ")
+					.unwrap_or(name);
+				let name = name.to_lowercase();
+				(name,e)
+			}
 		)
 		.collect::<Vec<(String,&'static Emoji)>>();
 
@@ -21,6 +27,10 @@ impl EmojiIndexer {
 
 	pub fn search(&self, what: &str, skin_tone: SkinTone) -> Vec<&'static Emoji> {
 			
+		if what.is_empty() {
+			return vec![];
+		}
+
 		let what = what.to_lowercase();
 
 		let mut lower_bound = self.emojis.as_slice()
@@ -48,4 +58,28 @@ impl EmojiIndexer {
 		}
 		results
 	}
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn search_empty() {
+        let indexer = EmojiIndexer::new();
+        let result = indexer.search("",SkinTone::Default);
+        assert!(result.is_empty());
+	}
+
+    #[test]
+    fn search_by_country() {
+        let indexer = EmojiIndexer::new();
+        let result = indexer.search("portugal",SkinTone::Default);
+        assert_eq!(
+			result,
+			vec![
+				emojis::get_by_shortcode("portugal").unwrap()
+			]
+		);
+    }
 }

@@ -12,6 +12,7 @@ lazy_static! {
     static ref EMOJI_INDEXER: EmojiIndexer = EmojiIndexer::new();
 }
 
+#[component]
 pub fn SearchIcon() -> Element {
 
 	rsx! {
