@@ -4,10 +4,16 @@
 	--emoji-size-inner : var(--emoji-size,1.5em);
 	--num-columns-inner: var(--num-columns, 9);
 	--num-rows-inner: var(--num-rows, 10);
- 	--bg-color-inner: var(--bg-color, white);
+ 	--background-inner: var(--background, white);
+	--border-color-inner: var(--border-color,#e0e0e0);
+	--border-size-inner: var(--border-size,1px);
+	--border-radius-inner: var(--border-radius,0);
+	--box-shadow-inner: var(--box-shadow, none);
 
-	background-color: var(--bg-color-inner);
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px ;
+	background-color: var(--background-inner);
+	border: var(--border-size-inner) solid var(--border-color-inner);
+	border-radius: var(--border-radius-inner);
+	box-shadow: var(--box-shadow-inner);
 	width: calc( 9 * var(--emoji-size-inner) * 1.5 + 20px);
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
@@ -83,7 +89,7 @@
 	display: inline-block;
 	border: none;
 	color: #008CBA;
-	background-color: var(--bg-color-inner);
+	background-color: var(--background-inner);
 	cursor: pointer;
 	padding: 0;
 	width: 1.5em;
