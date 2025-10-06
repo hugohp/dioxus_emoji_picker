@@ -191,9 +191,9 @@ fn EmojiGroups(
 						groups.iter().map(|(group,group_emoji,group_name)| {
 							let group = *group;
 							let class_name = if group == *selected_group {
-								"emoji_button active"
+								"emoji_groups_button active"
 							} else {
-								"emoji_button"
+								"emoji_groups_button"
 							};
 							rsx! {
 								button {
@@ -302,7 +302,7 @@ pub fn EmojiPicker(
 
 	rsx! {
 		div {
-			class: "emoji_container",
+			class: "emoji_picker",
 			EmojiSearch { picker_status : picker_status },
 			EmojiGroups { picker_status : picker_status },
 			EmojiCategory { picker_status : picker_status },
