@@ -1,0 +1,39 @@
+:root {
+	color-scheme: light;
+}
+
+.typing-area {
+	form {
+		textarea {
+			font-size: 1.5em;
+			width: max(35vw,350px);
+			height: 25vh;
+		}
+	}
+}
+button {
+	width: 0.5em;
+	height: 0.5em;
+	display: inline-block;
+	border: none;
+	color: #008CBA;
+	background-color: white;
+	cursor: pointer;
+}
+
+.emoji_picker {
+	--font-size: 18px;
+	--emoji-size: 24px;
+	--background: white;
+	--border-color: #e0e0e0;
+	--border-size: 2px;
+	--border-radius: 5px;
+	--box-shadow: none;
+	--num-columns: 8;
+	--num-rows: 7;
+	/*--box-shadow: var(--box-shadow, rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px);*/
+	font-family: Arial, Helvetica, sans-serif;
+	prefers-color-scheme: dark;
+}
+
+
