@@ -1,4 +1,4 @@
-# dioxus-emoji-picker
+# dioxus_emoji_picker
 
 <div align="center">
   <img src="images/emoji_picker.png">
