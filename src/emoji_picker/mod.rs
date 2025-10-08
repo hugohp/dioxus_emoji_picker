@@ -13,8 +13,9 @@ lazy_static! {
 }
 
 #[component]
-pub fn SearchIcon() -> Element {
+fn SearchIcon() -> Element {
 
+	// <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 	rsx! {
 		svg {
 			view_box:"0 0 24 24",
@@ -26,6 +27,35 @@ pub fn SearchIcon() -> Element {
 				stroke_width:"2",
 				stroke_linecap:"round",
 				stroke_linejoin:"round",
+			}
+		}
+	}
+}
+
+#[component]
+fn CancelIcon(
+	picker_status : Signal<PickerStatus>,
+	search_text : Signal<String>,
+) -> Element {
+
+	// <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+	rsx! {
+		span {
+			onclick: move |_| {
+				picker_status.set(
+					PickerStatus::ByGroup(Group::SmileysAndEmotion)
+				);
+				search_text.set(String::new());
+			},
+			svg {
+				view_box:"0 0 32 32",
+				fill:"#000000",
+				xmlns:"http://www.w3.org/2000/svg",
+				version:"1.1" ,
+				path {
+					d:"M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z"
+				}
 			}
 		}
 	}
@@ -76,6 +106,7 @@ fn EmojiSearch(
 ) -> Element {
 
 	let mut show_skin_tones = use_signal(|| false);
+	let mut search_text = use_signal(|| String::new());
 	let skin_tone_icon = use_memo(|| {
 		let current_skin_tone = SKIN_TONE.read().clone();
 		emojis::get("✌️").unwrap().with_skin_tone(current_skin_tone).unwrap().as_str()
@@ -88,21 +119,38 @@ fn EmojiSearch(
 				class: "emoji_search_box",
 				input {
 					class: "emoji_search_box_input",
+					id: "emoji_search_box_input",
 					oninput: move |evt| {
 						let what = evt.value().clone();
 						if what.is_empty() {
 							picker_status
 								.set(PickerStatus::ByGroup(Group::SmileysAndEmotion));
 						} else {
-							picker_status.set(PickerStatus::Searching(what));
+							picker_status.set(PickerStatus::Searching(what.clone()));
 						}
+						search_text.set(what);
 					},
 					type: "text",
 					placeholder: "Search...",
+					value: "{search_text}"
 				}
 				span {
 					class: "emoji_search_icon",
-					SearchIcon {}
+					match *picker_status.read() {
+						PickerStatus::ByGroup(_) => {
+							rsx! {
+								SearchIcon {}
+							}
+						},
+						PickerStatus::Searching(_) => {
+							rsx! {
+								CancelIcon { 
+									picker_status : picker_status,
+									search_text : search_text
+								}
+							}
+						}
+					}
 				}
 			}
 			div {
