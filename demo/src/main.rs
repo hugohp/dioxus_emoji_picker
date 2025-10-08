@@ -22,46 +22,79 @@ fn App() -> Element {
 }
 
 #[component]
-pub fn Main() -> Element {
-	let mut show_emoji_picker = use_signal(|| false);
-	let mut content = use_signal(|| 
-		"Type here, click button below to bring up emoji picker 😄\n".to_string()
-	);
+fn LightDark() -> Element {
+
 	rsx! {
 		div {
-			class:"typing-area",
-			form { 
-				textarea {
-					autofocus: "true",
-					value: "{content}",
-					oninput: move |evt| { 
-						content.set(evt.value().clone());
-					},
-					onclick: move |_| { 
-						show_emoji_picker.set(false);
-					},
-				}
+			"Dark mode:"
+		}
+		form {
+			class: "dark-light",
+			input {
+				type : "radio",
+				id : "auto",
+				value : "auto",
+				name : "dark-light",
+			}
+			label {
+				for: "auto",
+				"Auto"
+			}
+			input {
+				type : "radio",
+				id : "dark",
+				value : "dark",
+				name : "dark-light",
+			}
+			label {
+				for: "dark",
+				"Dark"
+			}
+			input {
+				type : "radio",
+				id : "light",
+				value : "light",
+				name : "dark-light",
+			}
+			label {
+				for: "light",
+				"Light"
 			}
 		}
-		button {
-			onclick: move |_| {
-				show_emoji_picker.toggle()
-			},
-			{
-				if *show_emoji_picker.read() {
-					rsx! {
-						img { src : "{HAPPY_ICON_ACTIVE}" }
-					} 
-				} else {
-					rsx! {
-						img { src : "{HAPPY_ICON}" }
+	}
+}
+
+#[component]
+pub fn Main() -> Element {
+	let mut content = use_signal(|| String::new());
+	rsx! {
+		div {
+			class : "top",
+			h1 {
+				"dioxus_emoji_picker"
+			}
+			p {
+				"Emoji Picker for "
+				a {
+					href : "https://dioxuslabs.com/",
+					"Dioxus Web Framework"
+				}
+			}
+			div {
+				class: "demo",
+				div {
+					class: "lhs",
+					EmojiPicker { content : content },
+				}
+				div {
+					class: "rhs",
+					div { 
+						LightDark {}
+					}
+					div {
+						"{content}"	
 					}
 				}
-			}
-		}
-		if show_emoji_picker() {
-			div {
-				EmojiPicker { content : content },
 			}
 		}
 	}

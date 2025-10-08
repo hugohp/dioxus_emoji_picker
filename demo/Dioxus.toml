@@ -3,7 +3,7 @@
 [web.app]
 
 # HTML title tag content
-title = "foo"
+title = "demo"
 
 # include `assets` in web platform
 [web.resource]

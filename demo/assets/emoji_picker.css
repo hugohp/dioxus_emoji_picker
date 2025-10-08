@@ -14,9 +14,10 @@
 	border: var(--border-size-inner) solid var(--border-color-inner);
 	border-radius: var(--border-radius-inner);
 	box-shadow: var(--box-shadow-inner);
-	width: calc( 9 * var(--emoji-size-inner) * 1.5 + 20px);
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+	display: block;
+	width: fit-content;
 
 	.emoji_search {
 		display: flex;
