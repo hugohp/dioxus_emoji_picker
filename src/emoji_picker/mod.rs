@@ -4,9 +4,11 @@ use lazy_static::lazy_static;
 
 static SKIN_TONE: GlobalSignal<SkinTone> = Signal::global(|| SkinTone::Default);
 
+pub mod options;
 mod emoji_indexer;
 
 use emoji_indexer::*;
+use options::*;
 
 lazy_static! {
     static ref EMOJI_INDEXER: EmojiIndexer = EmojiIndexer::new();
@@ -103,13 +105,14 @@ enum PickerStatus {
 #[component]
 fn EmojiSearch(
 	picker_status : Signal<PickerStatus>,
+	options : EmojiPickerOptions
 ) -> Element {
 
 	let mut show_skin_tones = use_signal(|| false);
 	let mut search_text = use_signal(|| String::new());
 	let skin_tone_icon = use_memo(|| {
 		let current_skin_tone = SKIN_TONE.read().clone();
-		emojis::get("✌️").unwrap().with_skin_tone(current_skin_tone).unwrap().as_str()
+		options.skin_tone_emoji.with_skin_tone(current_skin_tone).unwrap().as_str()
 	});
 
 	rsx! {
@@ -342,7 +345,8 @@ fn EmojiGrid(
 
 #[component]
 pub fn EmojiPicker(
-	content : Signal<String>
+	content : Signal<String>,
+	options : EmojiPickerOptions
 ) -> Element {
 	
 	let picker_status = use_signal(||
@@ -352,7 +356,10 @@ pub fn EmojiPicker(
 	rsx! {
 		div {
 			class: "emoji_picker",
-			EmojiSearch { picker_status : picker_status },
+			EmojiSearch { 
+				picker_status : picker_status , 
+				options : options 
+			},
 			EmojiGroups { picker_status : picker_status },
 			EmojiCategory { picker_status : picker_status },
 			EmojiGrid { picker_status : picker_status , content : content},

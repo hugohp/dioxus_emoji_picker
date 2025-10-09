@@ -1,5 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_emoji_picker::prelude::*;
+use emojis::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 const EMOJI_PICKER_CSS: Asset = asset!("/assets/emoji_picker.css");
@@ -84,7 +85,10 @@ pub fn Main() -> Element {
 				class: "demo",
 				div {
 					class: "lhs",
-					EmojiPicker { content : content },
+					EmojiPicker { 
+						content : content,
+						options : EmojiPickerOptions::default()
+					},
 				}
 				div {
 					class: "rhs",

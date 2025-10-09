@@ -16,8 +16,9 @@ exclude = [
 
 [dependencies]
 dioxus = { version = "0.6.0", features = [] }
-emojis = "0.6.4"
+emojis = { version = "0.7.2", features = ["serde"] }
 lazy_static = "1.5.0"
+serde_json = "1.0.145"
 
 [features]
 default = ["web"]
