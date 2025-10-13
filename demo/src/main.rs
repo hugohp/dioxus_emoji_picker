@@ -4,9 +4,6 @@ use emojis::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
 const EMOJI_PICKER_CSS: Asset = asset!("/assets/emoji_picker.css");
-const HEADER_SVG: Asset = asset!("/assets/header.svg");
-const HAPPY_ICON: Asset = asset!("/assets/happy.png");
-const HAPPY_ICON_ACTIVE: Asset = asset!("/assets/happy_active.png");
 
 fn main() {
     dioxus::launch(App);
@@ -67,7 +64,7 @@ fn LightDark() -> Element {
 
 #[component]
 pub fn Main() -> Element {
-	let mut content = use_signal(|| String::new());
+	let mut emoji = use_signal(|| None);
 	rsx! {
 		div {
 			class : "top",
@@ -86,7 +83,7 @@ pub fn Main() -> Element {
 				div {
 					class: "lhs",
 					EmojiPicker { 
-						content : content,
+						emoji : emoji,
 						options : EmojiPickerOptions::default()
 					},
 				}
@@ -95,8 +92,18 @@ pub fn Main() -> Element {
 					div { 
 						LightDark {}
 					}
-					div {
-						"{content}"	
+					match emoji() {
+						Some(emoji) => {
+							rsx! {
+								div {
+									class : "emoji",
+									"{emoji.as_str()}"	
+								}
+							}
+						},
+						None => {
+							rsx! {}
+						}
 					}
 				}
 			}

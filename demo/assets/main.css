@@ -20,9 +20,13 @@
 		}
 		.rhs {
 			margin: 0 0 0 20px;
-		}
-		.content {
-			width: 50vw;
+			.emoji {
+				display:flex;
+				font-size: 8em;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+			}
 		}
 	}
 

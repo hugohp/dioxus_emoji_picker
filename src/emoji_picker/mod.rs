@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use emojis::{Group,SkinTone};
+use emojis::{Emoji,Group,SkinTone};
 use lazy_static::lazy_static;
 
 static SKIN_TONE: GlobalSignal<SkinTone> = Signal::global(|| SkinTone::Default);
@@ -274,7 +274,7 @@ fn EmojiGroups(
 #[component]
 fn EmojiGrid(
 	picker_status : Signal<PickerStatus>,
-	content : Signal<String>,
+	emoji : Signal<Option<&'static Emoji>>,
 ) -> Element {
 
 	match &*picker_status.read() {
@@ -293,9 +293,7 @@ fn EmojiGrid(
 							rsx! {
 								button {
 									onclick: move |_| {
-										content.with_mut(|c|
-											c.push_str(emoji_str)
-										);
+										emoji.set(Some(e1));
 									},
 									key : "{emoji_str}",
 									class : "emoji_button",
@@ -324,9 +322,7 @@ fn EmojiGrid(
 							rsx! {
 								button {
 									onclick: move |_| {
-										content.with_mut(|c|
-											c.push_str(emoji_str)
-										);
+										emoji.set(Some(e1));
 									},
 									key : "{emoji_str}",
 									class : "emoji_button",
@@ -345,7 +341,7 @@ fn EmojiGrid(
 
 #[component]
 pub fn EmojiPicker(
-	content : Signal<String>,
+	emoji : Signal<Option<&'static Emoji>>,
 	options : EmojiPickerOptions
 ) -> Element {
 	
@@ -362,7 +358,7 @@ pub fn EmojiPicker(
 			},
 			EmojiGroups { picker_status : picker_status },
 			EmojiCategory { picker_status : picker_status },
-			EmojiGrid { picker_status : picker_status , content : content},
+			EmojiGrid { picker_status : picker_status , emoji : emoji},
 		}
 	}
 }
