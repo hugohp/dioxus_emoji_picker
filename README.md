@@ -13,11 +13,11 @@ use dioxus_emoji_picker::prelude::*;
 #[component]
 fn example() -> Element
 
-  let content = use_signal(|| String::new());
+  let emoji = use_signal(|| None);
 
   rsx! {
     div {
-      EmojiPicker { content : content },
+      EmojiPicker { emoji : emoji },
     }
   }
 }
@@ -25,8 +25,17 @@ fn example() -> Element
 
 # CSS
 
-Copy assets/emoji_picker.css into your asset/ folder.
-Colors and sizes can be styled with CSS variables:
+Colors and size can be styled with CSS variables. For example:
+
+```CSS
+emoji-picker {
+  --emoji-size: 3rem;
+  --num-columns: 6;
+  --background: gray;
+}
+```
+
+Full list of options:
 
 | Variable | Default | Description |
 |:-----|:--------:|------:|

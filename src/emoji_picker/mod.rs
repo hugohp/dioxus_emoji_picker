@@ -116,7 +116,7 @@ fn EmojiSearch(
 	});
 
 	rsx! {
-		div {
+		emoji-picker {
 			class: "emoji_search",
 			section {
 				class: "emoji_search_box",
@@ -350,7 +350,7 @@ pub fn EmojiPicker(
 	);
 
 	rsx! {
-		div {
+		emoji-picker {
 			class: "emoji_picker",
 			EmojiSearch { 
 				picker_status : picker_status , 

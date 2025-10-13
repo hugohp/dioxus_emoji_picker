@@ -1,4 +1,4 @@
-.emoji_picker {
+emoji-picker {
 
 	--font-size-inner : var(--font-size,1.5em);
 	--emoji-size-inner : var(--emoji-size,1.5em);
@@ -14,22 +14,25 @@
 	border: var(--border-size-inner) solid var(--border-color-inner);
 	border-radius: var(--border-radius-inner);
 	box-shadow: var(--box-shadow-inner);
-	width: calc( 9 * var(--emoji-size-inner) * 1.5 + 20px);
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+	display: block;
+	width: fit-content;
 
 	.emoji_search {
 		display: flex;
 		justify-content: space-between;
-		margin: 2px 10px 2px 10px;
+		padding: 2px 10px 2px 10px;
 		align-items: center;
+		width: 100%;
+		box-sizing: border-box;
+		border: none;
 
 		.emoji_search_box {
 			display: flex;
 			padding: 10px;
 			width: 100%;
 			border: 1px solid #ddd;
-			border-radius: 10px;
 			position: relative;
 			.emoji_search_box_input {
 				width: 100%;
