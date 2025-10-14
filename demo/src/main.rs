@@ -83,7 +83,7 @@ fn LightDark(
 
 #[component]
 pub fn Main() -> Element {
-	let mut emoji = use_signal(|| None);
+	let emoji = use_signal(|| None);
 	let options = use_signal( || EmojiPickerOptions::default() );
 	rsx! {
 		div {
