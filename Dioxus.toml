@@ -1,6 +1,7 @@
 [application]
 
 [web.app]
+base_path = 
 
 # HTML title tag content
 title = "dioxus-emoji-picker"

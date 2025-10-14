@@ -91,11 +91,17 @@ pub fn Main() -> Element {
 			h1 {
 				"dioxus_emoji_picker"
 			}
-			p {
+			h2 {
 				"Emoji Picker for "
 				a {
 					href : "https://dioxuslabs.com/",
 					"Dioxus Web Framework"
+				}
+			}
+			h2 {
+				a {
+					href : "https://crates.io/crates/dioxus_emoji_picker",
+					"crates.io"
 				}
 			}
 			div {
