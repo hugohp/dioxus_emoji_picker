@@ -47,7 +47,8 @@
 emoji-picker {
 	--font-size: 18px;
 	--emoji-size: 32px;
-	--background: white;
+	--background: #f0f0f0;
+	--background-dark: black;
 	--border-color: #e0e0e0;
 	--border-size: 2px;
 	--border-radius: 5px;

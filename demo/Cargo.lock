@@ -741,6 +741,7 @@ dependencies = [
  "dioxus",
  "dioxus_emoji_picker",
  "emojis",
+ "tracing",
 ]
 
 [[package]]

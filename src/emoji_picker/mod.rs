@@ -20,12 +20,11 @@ fn SearchIcon() -> Element {
 	// <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
 	rsx! {
 		svg {
+			class: "search-icon",
 			view_box:"0 0 24 24",
-			fill:"none",
 			xmlns:"http://www.w3.org/2000/svg",
 			path {
 				d:"M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z",
-				stroke:"#000000",
 				stroke_width:"2",
 				stroke_linecap:"round",
 				stroke_linejoin:"round",
@@ -51,8 +50,8 @@ fn CancelIcon(
 				search_text.set(String::new());
 			},
 			svg {
+				class: "cancel-icon",
 				view_box:"0 0 32 32",
-				fill:"#000000",
 				xmlns:"http://www.w3.org/2000/svg",
 				version:"1.1" ,
 				path {
@@ -105,18 +104,23 @@ enum PickerStatus {
 #[component]
 fn EmojiSearch(
 	picker_status : Signal<PickerStatus>,
-	options : EmojiPickerOptions
+	options : Signal<EmojiPickerOptions>,
 ) -> Element {
 
 	let mut show_skin_tones = use_signal(|| false);
 	let mut search_text = use_signal(|| String::new());
-	let skin_tone_icon = use_memo(|| {
+
+	let skin_tone_emoji = use_memo(move || 
+		options().skin_tone_emoji
+	);
+
+	let skin_tone_icon = use_memo(move || {
 		let current_skin_tone = SKIN_TONE.read().clone();
-		options.skin_tone_emoji.with_skin_tone(current_skin_tone).unwrap().as_str()
+		skin_tone_emoji().with_skin_tone(current_skin_tone).unwrap().as_str()
 	});
 
 	rsx! {
-		emoji-picker {
+		div {
 			class: "emoji_search",
 			section {
 				class: "emoji_search_box",
@@ -342,16 +346,25 @@ fn EmojiGrid(
 #[component]
 pub fn EmojiPicker(
 	emoji : Signal<Option<&'static Emoji>>,
-	options : EmojiPickerOptions
+	options : Signal<EmojiPickerOptions>
 ) -> Element {
 	
 	let picker_status = use_signal(||
 		PickerStatus::ByGroup(Group::SmileysAndEmotion)
 	);
 
+	let data_theme = use_memo(move ||
+		match options().theme { 
+			Theme::Auto => "",
+			Theme::Light => "light",
+			Theme::Dark => "dark",
+		}
+	);
+
 	rsx! {
 		emoji-picker {
 			class: "emoji_picker",
+			"data-theme": "{data_theme}",
 			EmojiSearch { 
 				picker_status : picker_status , 
 				options : options 

@@ -1,5 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_emoji_picker::prelude::*;
+use dioxus_emoji_picker::emoji_picker::options::*;
 use emojis::*;
 
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -20,7 +21,9 @@ fn App() -> Element {
 }
 
 #[component]
-fn LightDark() -> Element {
+fn LightDark(
+	options : Signal<EmojiPickerOptions>,
+) -> Element {
 
 	rsx! {
 		div {
@@ -33,6 +36,11 @@ fn LightDark() -> Element {
 				id : "auto",
 				value : "auto",
 				name : "dark-light",
+				onchange: move |_| {
+					options.set(
+						options().with_theme(Theme::default())
+					)
+				}
 			}
 			label {
 				for: "auto",
@@ -43,6 +51,11 @@ fn LightDark() -> Element {
 				id : "dark",
 				value : "dark",
 				name : "dark-light",
+				onchange: move |_| {
+					options.set(
+						options().with_theme(Theme::Dark)
+					)
+				}
 			}
 			label {
 				for: "dark",
@@ -53,6 +66,12 @@ fn LightDark() -> Element {
 				id : "light",
 				value : "light",
 				name : "dark-light",
+				onchange: move |_| {
+					options.set(
+						options().with_theme(Theme::Light)
+					)
+				}
+		
 			}
 			label {
 				for: "light",
@@ -65,6 +84,7 @@ fn LightDark() -> Element {
 #[component]
 pub fn Main() -> Element {
 	let mut emoji = use_signal(|| None);
+	let options = use_signal( || EmojiPickerOptions::default() );
 	rsx! {
 		div {
 			class : "top",
@@ -84,13 +104,13 @@ pub fn Main() -> Element {
 					class: "lhs",
 					EmojiPicker { 
 						emoji : emoji,
-						options : EmojiPickerOptions::default()
+						options : options,
 					},
 				}
 				div {
 					class: "rhs",
 					div { 
-						LightDark {}
+						LightDark { options : options }
 					}
 					match emoji() {
 						Some(emoji) => {
