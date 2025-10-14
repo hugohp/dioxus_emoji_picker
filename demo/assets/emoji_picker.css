@@ -2,7 +2,7 @@
 	--input-font-color-inner : var(--input-font-color,#111);
 	--background-inner: var(--background, #fff);
 	--border-color-inner: var(--border-color,#e0e0e0);
-	--category-font-color-inner: var(--category-font-color,black);
+	--category-font-color-inner: var(--category-font-color,#111);
 
 	--svg-stroke: black;
 	--search-icon-fill: var(--background-inner);
@@ -13,7 +13,7 @@
 	--input-font-color-inner : var(--input-font-color,#111);
 	--background-inner: var(--background, #fff);
 	--border-color-inner: var(--border-color,#e0e0e0);
-	--category-font-color-inner: var(--category-font-color,black);
+	--category-font-color-inner: var(--category-font-color,#111);
 
 	--svg-stroke: black;
 	--search-icon-fill: var(--background-inner);
@@ -25,7 +25,7 @@
 	--input-font-color-inner : var(--input-font-color-dark,#efefef);
  	--background-inner: var(--background-dark, #222);
 	--border-color-inner: var(--border-color-dark,#444);
-	--category-font-color-inner: var(--category-font-color,white);
+	--category-font-color-inner: var(--category-font-color,#efefef);
 
 	--svg-stroke: yellow;
 	--search-icon-fill: var(--background-inner);

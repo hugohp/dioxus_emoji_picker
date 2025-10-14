@@ -20,6 +20,9 @@
 		}
 		.rhs {
 			margin: 0 0 0 20px;
+			.dark-light {
+				margin-top: 10px;
+			}
 			.emoji {
 				display:flex;
 				font-size: 8em;
@@ -46,7 +49,7 @@
 
 emoji-picker {
 	--font-size: 18px;
-	--emoji-size: 32px;
+	--emoji-size: 24px;
 	--background: #f0f0f0;
 	--background-dark: black;
 	--border-color: #e0e0e0;
