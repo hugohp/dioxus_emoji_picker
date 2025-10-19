@@ -4,6 +4,8 @@
   <img src="https://raw.githubusercontent.com/hugohp/dioxus_emoji_picker/205d3309102e756c2f9805b2e440968284e74d5c/images/emoji_picker.png" alt="Emoji Picker">
 </div>
 
+An emoji picker for the [Dioxus](https://dioxuslabs.com/) web framework.
+
 # Usage
 
 ```rust
@@ -26,6 +28,10 @@ fn example() -> Element {
 	}
 }
 ```
+
+# Demo
+
+Click [here](https://hugohp.github.io/dioxus_emoji_picker_demo/) for demo.
 
 # CSS
 

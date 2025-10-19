@@ -740,7 +740,6 @@ version = "0.1.0"
 dependencies = [
  "dioxus",
  "dioxus_emoji_picker",
- "emojis",
  "tracing",
 ]
 

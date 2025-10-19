@@ -1,16 +1,42 @@
 :root {
 	color-scheme: light;
+	background: #f9f9f9;
 }
 
 .top {
 	h1,h2,h3 {
 		text-align: center;
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+		a:hover {
+			color: #007940;
+		}
 	}
 	h1 {
 		font-size: 1.5em;
 	}
 	h2 {
 		font-size: 1.2em;
+	}
+	h3 {
+		margin: 10px auto 10px auto;
+		width: fit-content;
+		font-size: 1.0em;
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		gap: 0.5em;
+		div {
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+			a:hover {
+	 			filter: invert(0.5) sepia(1);
+			}
+		}
 	}
 	p {
 		font-size: 1.0em;
@@ -50,6 +76,9 @@
 		}
 	  }
 	}
+}
+
+.cube-icon:hover {
 }
 
 emoji-picker {

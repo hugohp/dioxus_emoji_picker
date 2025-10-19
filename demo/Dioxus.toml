@@ -1,7 +1,7 @@
 [application]
 
 [web.app]
-base_path="https://github.com/hugohp/dioxus_emoji_picker_demo.git"
+base_path="dioxus_emoji_picker_demo"
 
 # HTML title tag content
 title = "demo"
