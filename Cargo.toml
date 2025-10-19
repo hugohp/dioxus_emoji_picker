@@ -1,6 +1,6 @@
 [package]
 name = "dioxus_emoji_picker"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Hugo <hugohp@proton.me>"]
 edition = "2021"
 description = "Dioxus Emoji Picker"
@@ -11,6 +11,7 @@ readme = "README.md"
 exclude = [
 	"images/emoji_picker.png"
 ]
+documentation = "https://docs.rs/dioxus_emoji_picker/latest/dioxus_emoji_picker/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
