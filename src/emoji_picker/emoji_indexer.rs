@@ -22,7 +22,7 @@ impl EmojiIndexer {
 
 		emojis.sort_by(|lhs,rhs| lhs.0.cmp(&rhs.0));
 
-		Self { emojis : emojis }
+		Self { emojis }
     }
 
 	pub fn search(&self, what: &str, skin_tone: SkinTone) -> Vec<&'static Emoji> {

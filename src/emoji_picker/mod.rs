@@ -108,14 +108,14 @@ fn EmojiSearch(
 ) -> Element {
 
 	let mut show_skin_tones = use_signal(|| false);
-	let mut search_text = use_signal(|| String::new());
+	let mut search_text = use_signal(String::new);
 
 	let skin_tone_emoji = use_memo(move || 
 		options().skin_tone_emoji
 	);
 
 	let skin_tone_icon = use_memo(move || {
-		let current_skin_tone = SKIN_TONE.read().clone();
+		let current_skin_tone = *SKIN_TONE.read();
 		skin_tone_emoji().with_skin_tone(current_skin_tone).unwrap().as_str()
 	});
 
