@@ -96,7 +96,8 @@ fn LightDark(
 		form {
 			class: "dark-light",
 			input {
-				type : "radio",
+				r#type : "radio",
+				checked: true,
 				id : "auto",
 				value : "auto",
 				name : "dark-light",
@@ -111,7 +112,7 @@ fn LightDark(
 				"Auto"
 			}
 			input {
-				type : "radio",
+				r#type : "radio",
 				id : "dark",
 				value : "dark",
 				name : "dark-light",
@@ -126,7 +127,7 @@ fn LightDark(
 				"Dark"
 			}
 			input {
-				type : "radio",
+				r#type : "radio",
 				id : "light",
 				value : "light",
 				name : "dark-light",
