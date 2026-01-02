@@ -9,6 +9,7 @@ An emoji picker for the [Dioxus](https://dioxuslabs.com/) web framework.
 # Usage
 
 ```rust
+use dioxus::prelude::*;
 use dioxus_emoji_picker::prelude::*;
 use dioxus_emoji_picker::emoji_picker::options::*;
 
@@ -37,7 +38,7 @@ Click [here](https://hugohp.github.io/dioxus_emoji_picker_demo/) for demo.
 
 Colors and size can be styled with CSS variables. For example:
 
-```
+```css
 emoji-picker {
   --emoji-size: 3rem;
   --num-columns: 6;
