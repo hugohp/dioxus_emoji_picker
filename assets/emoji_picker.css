@@ -4,6 +4,8 @@
 	--border-color-inner: var(--border-color,#e0e0e0);
 	--category-font-color-inner: var(--category-font-color,#111);
 
+	--button-hover-background-inner: var(--button-hover-background, #d9d9d9);
+
 	--svg-stroke: black;
 	--search-icon-fill: var(--background-inner);
 	--cancel-icon-fill: var(--background-inner);
@@ -14,6 +16,7 @@
 	--background-inner: var(--background, #fff);
 	--border-color-inner: var(--border-color,#e0e0e0);
 	--category-font-color-inner: var(--category-font-color,#111);
+	--button-hover-background-inner: var(--button-hover-background, #d9d9d9);
 
 	--svg-stroke: black;
 	--search-icon-fill: var(--background-inner);
@@ -26,6 +29,7 @@
  	--background-inner: var(--background-dark, #222);
 	--border-color-inner: var(--border-color-dark,#444);
 	--category-font-color-inner: var(--category-font-color,#efefef);
+	--button-hover-background-inner: var(--button-hover-background, #555555);
 
 	--svg-stroke: yellow;
 	--search-icon-fill: var(--background-inner);
@@ -149,6 +153,10 @@ emoji-picker {
 	padding: 0;
 	width: 1.5em;
 	height: 1.5em;
+}
+
+.emoji_button:hover {
+	background-color: var(--button-hover-background-inner)
 }
 
 /*
