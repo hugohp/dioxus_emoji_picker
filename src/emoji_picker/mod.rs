@@ -1,6 +1,7 @@
 use dioxus::prelude::*;
 use emojis::{Emoji,Group,SkinTone};
 use lazy_static::lazy_static;
+use std::collections::BTreeMap;
 
 static SKIN_TONE: GlobalSignal<SkinTone> = Signal::global(|| SkinTone::Default);
 
@@ -274,6 +275,43 @@ fn EmojiGroups(
 	}
 }		
 
+#[component]
+fn Indicator(picker_status : Signal<PickerStatus> ) -> Element {
+
+    let groups = BTreeMap::from([
+        (Group::SmileysAndEmotion, 0),
+        (Group::PeopleAndBody, 1),
+        (Group::AnimalsAndNature, 2),
+        (Group::FoodAndDrink, 3),
+        (Group::TravelAndPlaces, 4),
+        (Group::Activities, 5),
+        (Group::Objects, 6),
+        (Group::Symbols, 7),
+        (Group::Flags, 8),
+    ]);
+
+	match &*picker_status.read() {
+		PickerStatus::ByGroup(selected_group) => {
+			rsx! {
+				div {
+					class: "emoji_indicator_wrapper",
+					{
+						let translateX = 100 * groups.get(selected_group).unwrap();
+						rsx! {
+							div {
+								class: "emoji_indicator",
+								style: format!("transform:translateX({}%)",translateX)
+							}
+						}
+					}
+				}
+			}
+		},
+		_ => {
+			rsx! {}
+		}
+	}
+}
 
 #[component]
 fn EmojiGrid(
@@ -370,6 +408,7 @@ pub fn EmojiPicker(
 				options : options 
 			},
 			EmojiGroups { picker_status : picker_status },
+			Indicator { picker_status : picker_status },
 			EmojiCategory { picker_status : picker_status },
 			EmojiGrid { picker_status : picker_status , emoji : emoji},
 		}
