@@ -65,3 +65,6 @@ Full list of options:
 | \-\-border-size | 1px | Width of border |
 | \-\-border-radius | 0 | Radius of border |
 | \-\-box-shadow | none | Box shadow |
+| \-\-indicator-height-inner | 3px | Indicator height |
+| \-\-indicator-color-inner: #385ac1 | Indicator colour |
+
