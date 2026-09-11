@@ -355,7 +355,7 @@ pub fn EmojiPicker(
 ) -> Element {
     let picker_status = use_signal(|| PickerStatus::ByGroup(Group::SmileysAndEmotion));
 
-    let data_theme = use_memo(move || match options().theme {
+    let class = use_memo(move || match options().theme {
         Theme::Auto => "",
         Theme::Light => "light",
         Theme::Dark => "dark",
@@ -363,8 +363,7 @@ pub fn EmojiPicker(
 
     rsx! {
         emoji-picker {
-            class: "emoji_picker",
-            "data-theme": "{data_theme}",
+            class: "{class}",
             EmojiSearch {
                 picker_status : picker_status ,
                 options : options

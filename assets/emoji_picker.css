@@ -1,20 +1,6 @@
-[data-theme=""] {
-	--input-font-color-inner : var(--input-font-color,#111);
-	--background-inner: var(--background, #fff);
-	--border-color-inner: var(--border-color,#e0e0e0);
-	--category-font-color-inner: var(--category-font-color,#111);
+emoji-picker {
 
-	--button-hover-background-inner: var(--button-hover-background, #d9d9d9);
-
-	--indicator-height-inner: var(--indicator-height,3px);
-	--indicator-color-inner: var(--indicator-color,#385ac1);
-
-	--svg-stroke: black;
-	--search-icon-fill: var(--background-inner);
-	--cancel-icon-fill: var(--background-inner);
-}
-
-[data-theme="light"] {
+	color-scheme: dark light;
 	--input-font-color-inner : var(--input-font-color,#111);
 	--background-inner: var(--background, #fff);
 	--border-color-inner: var(--border-color,#e0e0e0);
@@ -29,11 +15,29 @@
 	--cancel-icon-fill: var(--background-inner);
 }
 
-[data-theme="dark"] {
+emoji-picker.light {
+
+	color-scheme: light;
+	--input-font-color-inner : var(--input-font-color,#111);
+	--background-inner: var(--background, #fff);
+	--border-color-inner: var(--border-color,#e0e0e0);
+	--category-font-color-inner: var(--category-font-color,#111);
+	--button-hover-background-inner: var(--button-hover-background, #d9d9d9);
+
+	--indicator-height-inner: var(--indicator-height,3px);
+	--indicator-color-inner: var(--indicator-colour,#385ac1);
+
+	--svg-stroke: black;
+	--search-icon-fill: var(--background-inner);
+	--cancel-icon-fill: var(--background-inner);
+}
+
+emoji-picker.dark {
+
 	color-scheme: dark;
-	--input-font-color-inner : var(--input-font-colour-dark,#efefef);
- 	--background-inner: var(--background-dark, #222);
-	--border-color-inner: var(--border-colour-dark,#444);
+	--input-font-color-inner : var(--input-font-colour,#efefef);
+	--background-inner: var(--background, #222);
+	--border-color-inner: var(--border-colour,#444);
 	--category-font-color-inner: var(--category-font-colour,#efefef);
 	--button-hover-background-inner: var(--button-hover-background, #555555);
 
@@ -46,7 +50,6 @@
 }
 
 emoji-picker {
-
 	--font-size-inner : var(--font-size,1.5em);
 
 	--emoji-size-inner : var(--emoji-size,1.5em);
@@ -157,7 +160,9 @@ emoji-picker {
 		height: calc(var(--emoji-size-inner)*var(--num-rows-inner)*1.5);
 		display: grid;
 		grid-template-columns: repeat(var(--num-columns-inner),auto);
-		justify-content: space-between;
+		justify-content: space-around;
+		align-content: flex-start;
+		align-items: flex-start;
 		overflow-y: scroll;
 		margin: 2px 10px 2px 10px;
 	}
@@ -179,48 +184,3 @@ emoji-picker {
 	background-color: var(--button-hover-background-inner);
 	border-radius: 25px;
 }
-
-/*
-emoji-picker.light {
-	color-scheme: light;
-}
-
-emoji-picker.dark {
-	color-scheme: dark;
-}
-
-
-@media (prefers-color-scheme: dark) {
-
-	emoji-picker {
-		background: var(--background-dark-inner);
-		border: var(--border-size-inner) solid var(--border-color-dark-inner);
-    	color: #ddccbb;
-		.emoji_search {
-			.emoji_search_box {
-				.emoji_search_box_input {
-					background: var(--background-dark-inner);
-					color: var(--input-font-color-dark-inner);
-				}
-				.search-icon {
-					height: 100%;
-					fill: var(--background-dark-inner);
-					stroke: yellow;
-					background-color: var(--background-dark-inner);
-				}
-				.cancel-icon {
-					height: 100%;
-					fill: yellow;
-					stroke: yellow;
-					background-color: var(--background-dark-inner);
-				}
-	
-			}
-		}
-	}
-	.emoji_button, .emoji_groups_button { 
-		background-color: var(--background-dark-inner);
-	}
-	
-}
-*/

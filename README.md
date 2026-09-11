@@ -46,25 +46,31 @@ emoji-picker {
 }
 ```
 
+## Light and dark mode
+
+Dark and light mode can be styled appending .light or .dark to emoji-picker 
+
+```css
+emoji-picker.dark {
+  --border-color: #e0e0e0;
+}
+```
+
 Full list of options:
 
-| Variable | Default | Description |
-|:-----|:--------:|------:|
-| \-\-font-size   | 1.5em | Font-size |
-| \-\-emoji-size | 1.5em | Size of emojis |
-| \-\-num-columns | 9 | Number of columns in emoji grid |
-| \-\-num-rows | 10 | Number of rows in emoji grid |
-| \-\-background | #fff | Background color |
-| \-\-background-dark | #222 | Background color (dark)|
-| \-\-border-color | #e0e0e0 | Border color |
-| \-\-border-color-dark | #444 | Border color (dark) |
-| \-\-category-color | #111 | Font color for category |
-| \-\-category-color-dark | #efefef | Font color for category (dark) |
-| \-\-input-font-color | #111 | Input font color |
-| \-\-input-font-color-dark | #efefef | Input font color (dark) |
-| \-\-border-size | 1px | Width of border |
-| \-\-border-radius | 0 | Radius of border |
-| \-\-box-shadow | none | Box shadow |
-| \-\-indicator-height-inner | 3px | Indicator height |
-| \-\-indicator-color-inner: #385ac1 | Indicator colour |
-
+| Variable | Default (light) | Default (dark) | Description |
+|:-----|:--------:|:--------:|------:|
+| \-\-font-size   | 1.5em | 1.5em | Font-size |
+| \-\-emoji-size | 1.5em | 1.5em | Size of emojis |
+| \-\-num-columns | 9 | 9 | Number of columns in emoji grid |
+| \-\-num-rows | 10 | 10 | Number of rows in emoji grid |
+| \-\-background | #fff | #222 | Background color |
+| \-\-border-color | #e0e0e0 | #444 | Border color |
+| \-\-category-color | #111 | #efefef | Font color for category |
+| \-\-input-font-color | #111 | #efefef | Input font color |
+| \-\-button-hover-background | #d9d9d9 | #555555 | Background of a hovered button |
+| \-\-border-size | 1px | 1px | Width of border |
+| \-\-border-radius | 0 | 0 | Radius of border |
+| \-\-box-shadow | none | none | Box shadow |
+| \-\-indicator-height | 3px | 3px | Indicator height |
+| \-\-indicator-color | #385ac1 | #385ac1 | Indicator colour |
