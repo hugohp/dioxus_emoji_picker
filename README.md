@@ -1,7 +1,7 @@
 # Dioxus Emoji Picker
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/hugohp/dioxus_emoji_picker/205d3309102e756c2f9805b2e440968284e74d5c/images/emoji_picker.png" alt="Emoji Picker">
+  <img src="https://github.com/hugohp/dioxus_emoji_picker/blob/main/images/emoji_picker.png?raw=true" alt="Emoji Picker">
 </div>
 
 An emoji picker for the [Dioxus](https://dioxuslabs.com/) web framework.
