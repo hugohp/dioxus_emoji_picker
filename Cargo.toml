@@ -1,6 +1,6 @@
 [package]
 name = "dioxus_emoji_picker"
-version = "0.5.0"
+version = "0.5.1"
 authors = ["Hugo <hugohp@proton.me>"]
 edition = "2021"
 description = "Dioxus Emoji Picker"
