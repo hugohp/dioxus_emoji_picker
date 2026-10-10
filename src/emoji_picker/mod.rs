@@ -15,6 +15,8 @@ lazy_static! {
     static ref EMOJI_INDEXER: EmojiIndexer = EmojiIndexer::new();
 }
 
+const EMOJI_PICKER_CSS: &str = include_str!("../../assets/emoji_picker.css");
+
 #[component]
 fn SearchIcon() -> Element {
     // <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -362,6 +364,7 @@ pub fn EmojiPicker(
     });
 
     rsx! {
+        document::Style { "{EMOJI_PICKER_CSS}" }
         emoji-picker {
             class: "{class}",
             EmojiSearch {

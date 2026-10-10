@@ -36,6 +36,8 @@ Click [here](https://hugohp.github.io/dioxus_emoji_picker_demo/) for demo.
 
 # CSS
 
+The stylesheet is embedded in the crate and injected automatically when the picker renders — no manual CSS import is needed.
+
 Colors and size can be styled with CSS variables. For example:
 
 ```css
@@ -60,8 +62,9 @@ Full list of options:
 
 | Variable | Default (light) | Default (dark) | Description |
 |:-----|:--------:|:--------:|------:|
-| \-\-font-size   | 1.5em | 1.5em | Font-size |
+| \-\-font-size | 1em | 1em | Base font size — scales the whole picker |
 | \-\-emoji-size | 1.5em | 1.5em | Size of emojis |
+| \-\-emoji-button-size | 1.5em | 1.5em | Size of each emoji button |
 | \-\-num-columns | 9 | 9 | Number of columns in emoji grid |
 | \-\-num-rows | 10 | 10 | Number of rows in emoji grid |
 | \-\-background | #fff | #222 | Background color |
@@ -73,4 +76,12 @@ Full list of options:
 | \-\-border-radius | 0 | 0 | Radius of border |
 | \-\-box-shadow | none | none | Box shadow |
 | \-\-indicator-height | 3px | 3px | Indicator height |
-| \-\-indicator-color | #385ac1 | #385ac1 | Indicator colour |
+| \-\-indicator-color | #385ac1 | #385ac1 | Indicator color |
+| \-\-button-font-color | #008CBA | #008CBA | Font color of emoji buttons |
+| \-\-dropdown-box-shadow | rgba shadow | rgba shadow | Box shadow of dropdown lists (skin-tone menu) |
+| \-\-icon-stroke | black | yellow | Stroke color of search and cancel icons |
+| \-\-search-icon-fill | background | background | Fill color of the search icon |
+| \-\-cancel-icon-fill | background | yellow | Fill color of the cancel icon |
+| \-\-scrollbar-color | #c1c1c1 | #555555 | Grid scrollbar thumb color |
+| \-\-scrollbar-track | transparent | transparent | Grid scrollbar track color |
+| \-\-focus-color | indicator color | indicator color | Keyboard focus ring color |
