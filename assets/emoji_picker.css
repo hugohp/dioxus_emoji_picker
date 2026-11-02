@@ -139,7 +139,7 @@ emoji-picker {
 	.emoji_indicator_wrapper {
 		margin: 2px 10px 2px 10px;
 		.emoji_indicator {
-			width: calc(100% / var(--num-columns-inner));
+			width: calc(100% / 9);
 			height: var(--indicator-height-inner);
 			background-color: var(--indicator-color-inner);
 			transition: transform .25s ease-in-out;
