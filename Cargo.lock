@@ -1406,7 +1406,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus_emoji_picker"
-version = "0.5.1"
+version = "0.5.2"
 dependencies = [
  "dioxus",
  "emojis",
